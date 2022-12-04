@@ -1,36 +1,71 @@
-# NLW Bolão da Copa do Mundo
+<p align="center">
+  <img alt="NLW Copa" src=".github/logo.svg" />
+</p>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=NLW&message=10&color=F7DD43&labelColor=202024" alt="NLW 10 - Copa" />
+  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
+</p>
 
-## Getting Started
+<img src=".github/web.png">
 
-First, run the development server:
+## 💻 Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+**NLW Copa** é um projeto da Rocketseat onde construimos uma aplicação de um **Bolão para a Copa do Mundo de 2022**. Essa aplicação é responsável por criar os grupos dos bolões, listar os bolões, entrar em um bolão, etc. Utilizando tecnologias como: **React** para Web, **React Native** para Mobile e **NodeJS** para o Server.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Tecnologia
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Fastify](https://www.fastify.io/)
+- [Prisma](https://www.prisma.io/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 Como executar
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Em todos os projetos, ao acessar a pasta, é preciso baixar os pacotes com o gerenciador de sua preferencia.
 
-## Learn More
+Acesse a documentação de cada projeto:
 
-To learn more about Next.js, take a look at the following resources:
+# Backend como executar 🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Instale os pacotes com `npm install`.
+- Faça uma copia do arquivo `.env.example` para `.env` e altere caso necessário.
+- Execute `npx prisma migrate dev` para rodar as migrations. (Esse comando também já vai executar as seeds)
+- Execute `npm run dev` para iniciar o servidor.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Web como executar 🚀
 
-## Deploy on Vercel
+**Para que esse projeto funcione corretamente, é preciso estar com o servidor rodando.**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Instale os pacotes com `npm install`.
+- Execute `npm run dev` para iniciar o cliente web.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Mobile como executar 🚀
+
+**Para que esse projeto funcione corretamente, é preciso estar com o servidor rodando.**
+
+- Instale os pacotes com `npm install`.
+- Criar o app no google para poder ter acesso ao OAuth (<https://docs.expo.dev/guides/authentication/#google>)
+- Faça uma copia do arquivo `.env.example` para `.env` e preencha corretamente.
+- Alterar o endereço do arquivo `src/services/api.ts` colocando o IP da máquina.
+- Execute `npx expo start` para iniciar o servidor do Expo.
+
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto através do link abaixo:
+
+- [Layout](https://www.figma.com/community/file/1169028343875283461)
+
+Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
+
+## 📝 License
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<p align="center">
+  Feito com 💜 by Rocketseat
+</p>
