@@ -5,7 +5,7 @@ import { Octicons } from "@expo/vector-icons";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { Header } from "../components/Header";
-import { Button } from "../components/Button";
+import { Button } from "../components/Botton";
 import { PoolCard, PoolCardProps } from "../components/PoolCard";
 import { Loading } from "../components/Loading";
 import { EmptyPoolList} from "../components/EmptyPoolList";

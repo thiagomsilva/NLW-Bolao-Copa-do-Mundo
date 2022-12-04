@@ -5,7 +5,7 @@ import { api } from "../services/api";
 
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
-import { Button } from "../components/Button";
+import { Button } from "../components/Botton";
 import { useNavigation } from "@react-navigation/native";
 
 export function Find() {

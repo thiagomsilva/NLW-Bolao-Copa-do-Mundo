@@ -1,58 +1,35 @@
-import Fastify from "fastify"
-import cors from "@fastify/cors"
-import { z } from "zod"
-import { PrismaClient } from "@prisma/client"
-import ShortUniqueId from "short-unique-id"
+import Fastify from "fastify";
+import cors from "@fastify/cors";
+import jwt from "@fastify/jwt";
 
-const prisma = new PrismaClient({
-    log: ['query'],
-})
+import { poolRoutes } from "./routes/pool";
+import { authRoutes } from "./routes/auth";
+import { gameRoutes } from "./routes/game";
+import { guessRoutes } from "./routes/guess";
+import { userRoutes } from "./routes/user";
 
 async function bootstrap() {
     const fastify = Fastify({
-        logger: true,
-    })
+        logger: true, //Serve para o Fastify soltar os logs de tudo que vai acontecendo na Operação
+    });
 
+    // Habilitando o @fastify/cors. origen: true estamos deixando qualquer um acessar nossos dados, use isso somente
+    //  em ambiente dev. Em prod é so adicionar os domínios.
     await fastify.register(cors, {
-        origin: true, 
-    })
+        origin: true,
+    });
 
-    fastify.get('/pools/count', async () => {
-        const count = await prisma.pool.count()
-        return { count }
-    })
+    // em produção isso precisa ser uma variável de ambiente!
+    await fastify.register(jwt, { secret: "nlwcopa" });
 
-    fastify.get('/users/count', async () => {
-        const count = await prisma.user.count()
-        return { count }
-    })
+    await fastify.register(poolRoutes);
+    await fastify.register(authRoutes);
+    await fastify.register(gameRoutes);
+    await fastify.register(guessRoutes);
+    await fastify.register(userRoutes);
 
-    fastify.get('/guesses/count', async () => {
-        const count = await prisma.guess.count()
-        return { count }
-    })
-
-    fastify.post('/pools', async (request, reply) => {
-        const createPoolBody = z.object({
-            title: z.string(),
-        })
-
-        const { title } = createPoolBody.parse(request.body)
-
-        const genarate = new ShortUniqueId({ length: 6 })
-        const code = String(genarate()).toUpperCase()
-
-        await prisma.pool.create({
-            data: {
-                title,
-                code
-            }
-        })
-
-        return reply.status(201).send({ code })
-    })
-
-    await fastify.listen({ port: 3333, /*host: '0.0.0.0'*/ })
+    // add host: "0.0.0.0" para funcionar no android
+    await fastify.listen({ port: 3333, host: "0.0.0.0" });
 }
 
-bootstrap()
+bootstrap();
