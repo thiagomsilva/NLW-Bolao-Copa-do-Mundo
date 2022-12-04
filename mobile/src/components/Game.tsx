@@ -9,7 +9,6 @@ import { Team } from "./Team";
 
 interface GuessProps {
     id: string;
-    date: string;
     gameId: string;
     createdAt: string;
     participantId: string;
@@ -19,6 +18,7 @@ interface GuessProps {
 
 export interface GameProps {
     id: string;
+    date: string;
     firstTeamCountryCode: string;
     secondTeamCountryCode: string;
     guess: null | GuessProps;

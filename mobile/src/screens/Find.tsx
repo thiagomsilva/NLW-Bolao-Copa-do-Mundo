@@ -68,7 +68,7 @@ export function Find() {
             <Header title="Buscar por código" showBackButton />
             <VStack mt={8} mx={5} alignItems="center">
                 <Heading
-                    fonFamily="heading"
+                    fontFamily="heading"
                     color="white"
                     fontSize="xl"
                     textAlign="center"

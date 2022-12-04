@@ -55,7 +55,7 @@ export function New() {
                 <Logo />
 
                 <Heading
-                    fonFamily="heading"
+                    fontFamily="heading"
                     color="white"
                     fontSize="xl"
                     my={8}
